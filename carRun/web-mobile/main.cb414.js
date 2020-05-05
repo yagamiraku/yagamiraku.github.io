@@ -140,7 +140,7 @@ window.boot = function () {
     // jsList
     var jsList = settings.jsList;
 
-    var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.6c7cb.js';
+    var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.3b734.js';
     if (jsList) {
         jsList = jsList.map(function (x) {
             return 'src/' + x;
@@ -178,7 +178,7 @@ window.boot = function () {
 if (window.jsb) {
     var isRuntime = (typeof loadRuntime === 'function');
     if (isRuntime) {
-        require('src/settings.7edbc.js');
+        require('src/settings.5dd84.js');
         require('src/cocos2d-runtime.js');
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require('src/physics.js');
@@ -186,7 +186,7 @@ if (window.jsb) {
         require('jsb-adapter/engine/index.js');
     }
     else {
-        require('src/settings.7edbc.js');
+        require('src/settings.5dd84.js');
         require('src/cocos2d-jsb.js');
         if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
             require('src/physics.js');
@@ -197,3 +197,21 @@ if (window.jsb) {
     cc.macro.CLEANUP_IMAGE_CACHE = true;
     window.boot();
 }
+// Begin Cocos Analytics
+(function () {
+  if ((typeof cocosAnalytics) !== 'undefined'){
+    var initArgs = {
+      appID: '686424984',
+      storeID: 'github',
+      engine: 'cocos',
+      callNumber: ''
+    };
+    if (!initArgs.appID || !initArgs.storeID) {
+      console.error('请在编辑器设置好 Cocos Analytics 的 appID 和 storeID');
+      return;
+    }
+    cocosAnalytics.init(initArgs);
+  }
+})();
+// End Cocos Analytics
+    
